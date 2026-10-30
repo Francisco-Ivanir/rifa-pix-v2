@@ -163,3 +163,15 @@ body {
     font-size: 14px;
   }
 }
+
+
+/* NÚMERO SELECIONADO */
+
+.numero.selecionado {
+  background: #16a34a;
+  border-color: #22c55e;
+  color: #ffffff;
+  transform: scale(1.04);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.45);
+  cursor: pointer;
+}
