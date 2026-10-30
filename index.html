@@ -1,18 +1,52 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rifa PIX V2</title>
+  <title>Rifa PIX de R$ 50</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Rifa PIX de R$ 50</h1>
-  <p>Projeto Rifa PIX V2 iniciado.</p>
+
+  <main class="container">
+
+    <header class="cabecalho">
+      <h1>🎟️ Rifa PIX de R$ 50</h1>
+      <p>Escolha seus números e participe!</p>
+    </header>
+
+    <section class="premio">
+      <h2>Prêmio da Rifa</h2>
+      <div class="valor-premio">R$ 50,00</div>
+      <p>Concorra a R$ 50 via PIX!</p>
+    </section>
+
+    <section class="resumo">
+      <div class="resumo-item">
+        <span>Total de números</span>
+        <strong>100</strong>
+      </div>
+
+      <div class="resumo-item">
+        <span>Valor por número</span>
+        <strong>R$ 0,80</strong>
+      </div>
+
+      <div class="resumo-item">
+        <span>Disponíveis</span>
+        <strong id="disponiveis">100</strong>
+      </div>
+    </section>
+
+    <section class="numeros">
+      <h2>Escolha seus números</h2>
+      <p>A grade de números será exibida aqui.</p>
+      <div id="gradeNumeros"></div>
+    </section>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-
