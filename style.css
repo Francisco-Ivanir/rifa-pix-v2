@@ -129,3 +129,37 @@ body {
     font-size: 32px;
   }
 }
+
+
+/* GRADE DOS 100 NÚMEROS */
+
+#gradeNumeros {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.numero {
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 12px 2px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  #gradeNumeros {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .numero {
+    padding: 11px 2px;
+    font-size: 14px;
+  }
+}
