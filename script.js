@@ -22,6 +22,14 @@ const totalCompra = document.getElementById("totalCompra");
 function atualizarPainelSelecao() {
   quantidadeSelecionada.textContent = numerosSelecionados.length;
 
+  // CALCULAR O VALOR TOTAL
+const total = numerosSelecionados.length * VALOR_NUMERO;
+
+totalCompra.textContent = total.toLocaleString("pt-BR", {
+  style: "currency",
+  currency: "BRL"
+});
+  
   if (numerosSelecionados.length === 0) {
     listaSelecionados.textContent = "Nenhum número selecionado.";
   } else {
