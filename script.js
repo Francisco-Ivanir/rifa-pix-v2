@@ -12,6 +12,12 @@ let numerosSelecionados = [];
 // LIMITE DE NÚMEROS POR PARTICIPANTE
 const LIMITE_NUMEROS = 5;
 
+// VALOR DE CADA NÚMERO
+const VALOR_NUMERO = 0.80;
+
+// ELEMENTO DO TOTAL DA COMPRA
+const totalCompra = document.getElementById("totalCompra");
+
 // ATUALIZAR PAINEL
 function atualizarPainelSelecao() {
   quantidadeSelecionada.textContent = numerosSelecionados.length;
