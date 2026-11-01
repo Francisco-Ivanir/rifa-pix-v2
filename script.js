@@ -9,6 +9,9 @@ const listaSelecionados = document.getElementById("listaSelecionados");
 // LISTA DOS NÚMEROS SELECIONADOS
 let numerosSelecionados = [];
 
+// LIMITE DE NÚMEROS POR PARTICIPANTE
+const LIMITE_NUMEROS = 5;
+
 // ATUALIZAR PAINEL
 function atualizarPainelSelecao() {
   quantidadeSelecionada.textContent = numerosSelecionados.length;
