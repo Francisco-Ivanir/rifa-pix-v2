@@ -44,11 +44,18 @@ for (let i = 1; i <= 100; i++) {
 
       this.classList.remove("selecionado");
 
-    } else {
-      numerosSelecionados.push(valor);
+   
+} else {
 
-      this.classList.add("selecionado");
-    }
+  if (numerosSelecionados.length >= LIMITE_NUMEROS) {
+    alert("Você pode selecionar no máximo 5 números por participante.");
+    return;
+  }
+
+  numerosSelecionados.push(valor);
+
+  this.classList.add("selecionado");
+}
 
     atualizarPainelSelecao();
 
