@@ -1,6 +1,30 @@
 
 console.log("Rifa PIX V2 carregada.");
 
+// DADOS DO PARTICIPANTE
+const nomeCliente = document.getElementById("nomeCliente");
+const whatsappCliente = document.getElementById("whatsappCliente");
+
+// VALIDAR DADOS DO PARTICIPANTE
+function validarParticipante() {
+  const nome = nomeCliente.value.trim();
+  const whatsapp = whatsappCliente.value.replace(/\D/g, "");
+
+  if (nome === "") {
+    alert("Por favor, informe seu nome.");
+    nomeCliente.focus();
+    return false;
+  }
+
+  if (whatsapp.length !== 10 && whatsapp.length !== 11) {
+    alert("Informe um WhatsApp válido com DDD.");
+    whatsappCliente.focus();
+    return false;
+  }
+
+  return true;
+}
+
 // CONTROLE DOS NÚMEROS
 const gradeNumeros = document.getElementById("gradeNumeros");
 const quantidadeSelecionada = document.getElementById("quantidadeSelecionada");
