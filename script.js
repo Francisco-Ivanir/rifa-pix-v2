@@ -25,6 +25,37 @@ function validarParticipante() {
   return true;
 }
 
+// BOTÃO DE CONTINUAR
+const btnContinuar = document.getElementById("btnContinuar");
+
+btnContinuar.addEventListener("click", function() {
+
+  if (numerosSelecionados.length === 0) {
+    alert("Selecione pelo menos um número.");
+    return;
+  }
+
+  if (!validarParticipante()) {
+    return;
+  }
+
+  const nome = nomeCliente.value.trim();
+  const whatsapp = whatsappCliente.value.replace(/\D/g, "");
+  const total = numerosSelecionados.length * VALOR_NUMERO;
+
+  alert(
+    "Dados conferidos!\n\n" +
+    "Nome: " + nome + "\n" +
+    "WhatsApp: " + whatsapp + "\n" +
+    "Números: " + numerosSelecionados.join(", ") + "\n" +
+    "Total: " + total.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    })
+  );
+
+});
+
 // CONTROLE DOS NÚMEROS
 const gradeNumeros = document.getElementById("gradeNumeros");
 const quantidadeSelecionada = document.getElementById("quantidadeSelecionada");
