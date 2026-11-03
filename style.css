@@ -227,3 +227,22 @@ body {
   color: #94a3b8;
 }
 
+/* BOTÃO CONTINUAR */
+
+#btnContinuar {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btnContinuar:hover {
+  background: #15803d;
+}
+
