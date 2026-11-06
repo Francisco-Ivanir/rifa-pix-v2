@@ -1,6 +1,15 @@
 
 console.log("Rifa PIX V2 carregada.");
 
+// INICIALIZAR FIREBASE
+const appFirebase = firebase.initializeApp(firebaseConfig);
+
+// CONECTAR AO REALTIME DATABASE
+const bancoDados = firebase.database();
+
+console.log("Firebase conectado:", appFirebase.name);
+console.log("Realtime Database inicializado.");
+
 // DADOS DO PARTICIPANTE
 const nomeCliente = document.getElementById("nomeCliente");
 const whatsappCliente = document.getElementById("whatsappCliente");
