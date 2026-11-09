@@ -10,6 +10,16 @@ const bancoDados = firebase.database();
 console.log("Firebase conectado:", appFirebase.name);
 console.log("Realtime Database inicializado.");
 
+// AUTENTICAÇÃO ANÔNIMA
+firebase.auth().signInAnonymously()
+  .then((resultado) => {
+    console.log("Participante autenticado!");
+    console.log("UID:", resultado.user.uid);
+  })
+  .catch((erro) => {
+    console.error("Erro na autenticação:", erro.code, erro.message);
+  });
+
 // DADOS DO PARTICIPANTE
 const nomeCliente = document.getElementById("nomeCliente");
 const whatsappCliente = document.getElementById("whatsappCliente");
