@@ -10,6 +10,17 @@ const bancoDados = firebase.database();
 console.log("Firebase conectado:", appFirebase.name);
 console.log("Realtime Database inicializado.");
 
+// MONITORAR CONEXÃO COM O FIREBASE
+bancoDados.ref(".info/connected").on("value", (snapshot) => {
+
+  if (snapshot.val() === true) {
+    console.log("Conexão com Realtime Database: ONLINE");
+  } else {
+    console.log("Conexão com Realtime Database: OFFLINE");
+  }
+
+});
+
 // AUTENTICAÇÃO ANÔNIMA
 firebase.auth().signInAnonymously()
   .then((resultado) => {
