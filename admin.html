@@ -136,6 +136,13 @@
 
     </form>
 
+    <!-- ÁREA DA SESSÃO ADMINISTRATIVA -->
+<div id="areaAdmin" hidden>
+  <h3>Sessão administrativa ativa</h3>
+  <p>Administrador autenticado com sucesso.</p>
+  <button type="button" id="btnSair">Sair do painel</button>
+</div>
+    
     <div class="aviso">
       Área administrativa protegida.
       A autenticação será implementada na próxima etapa.
@@ -170,6 +177,10 @@ const formLogin = document.getElementById("formLogin");
 const mensagemLogin = document.getElementById("mensagemLogin");
 const btnLogin = document.getElementById("btnLogin");
 
+    // ELEMENTOS DA SESSÃO ADMINISTRATIVA
+const areaAdmin = document.getElementById("areaAdmin");
+const btnSair = document.getElementById("btnSair");
+    
 // REALIZAR LOGIN
 formLogin.addEventListener("submit", async function(event) {
 
@@ -216,6 +227,33 @@ formLogin.addEventListener("submit", async function(event) {
 
 });
 
+    // RESTAURAR E MONITORAR A SESSÃO ADMINISTRATIVA
+adminAuth.onAuthStateChanged(async function(usuario) {
+
+  if (usuario && usuario.uid === UID_ADMINISTRADOR) {
+    formLogin.hidden = true;
+    areaAdmin.hidden = false;
+
+    console.log("Sessão administrativa restaurada.");
+
+  } else {
+    formLogin.hidden = false;
+    areaAdmin.hidden = true;
+
+    if (usuario) {
+      await adminAuth.signOut();
+      console.warn("Acesso não autorizado.");
+    }
+  }
+
+});
+
+// ENCERRAR SESSÃO ADMINISTRATIVA
+btnSair.addEventListener("click", async function() {
+  await adminAuth.signOut();
+  mensagemLogin.textContent = "Sessão encerrada.";
+});
+    
 </script>
   
 </body>
