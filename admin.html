@@ -151,5 +151,72 @@
   <!-- CONFIGURAÇÃO FIREBASE -->
   <script src="firebase-config.js"></script>
 
+  <script>
+
+// IDENTIFICAÇÃO DO ADMINISTRADOR
+const UID_ADMINISTRADOR = "VPBV5FULPPV9MORhxNprS89Fvg22";
+
+// CRIAR INSTÂNCIA INDEPENDENTE
+const adminApp = firebase.initializeApp(
+  firebaseConfig,
+  "adminApp"
+);
+
+// AUTENTICAÇÃO ADMINISTRATIVA
+const adminAuth = adminApp.auth();
+
+// ELEMENTOS DA TELA
+const formLogin = document.getElementById("formLogin");
+const mensagemLogin = document.getElementById("mensagemLogin");
+const btnLogin = document.getElementById("btnLogin");
+
+// REALIZAR LOGIN
+formLogin.addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  const email = document.getElementById("emailAdmin").value.trim();
+  const senha = document.getElementById("senhaAdmin").value;
+
+  btnLogin.disabled = true;
+  mensagemLogin.textContent = "Verificando acesso...";
+
+  try {
+
+    const resultado = await adminAuth.signInWithEmailAndPassword(
+      email,
+      senha
+    );
+
+    // CONFERIR UID AUTORIZADO
+    if (resultado.user.uid !== UID_ADMINISTRADOR) {
+
+      await adminAuth.signOut();
+
+      throw new Error("Esta conta não possui autorização administrativa.");
+    }
+
+    mensagemLogin.textContent = "Login administrativo confirmado!";
+
+    console.log("Administrador autenticado!");
+    console.log("UID administrativo:", resultado.user.uid);
+
+  } catch (erro) {
+
+    console.error("Erro no login:", erro.code || "", erro.message);
+
+    mensagemLogin.textContent =
+      erro.message || "Não foi possível realizar o login.";
+
+  } finally {
+
+    btnLogin.disabled = false;
+
+  }
+
+});
+
+</script>
+  
 </body>
 </html>
