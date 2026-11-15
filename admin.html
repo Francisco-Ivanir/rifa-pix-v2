@@ -172,6 +172,11 @@ const adminApp = firebase.initializeApp(
 // AUTENTICAÇÃO ADMINISTRATIVA
 const adminAuth = adminApp.auth();
 
+    // CONEXÃO ADMINISTRATIVA COM O REALTIME DATABASE
+const bancoAdmin = adminApp.database();
+
+console.log("Realtime Database administrativo inicializado.");
+    
 // ELEMENTOS DA TELA
 const formLogin = document.getElementById("formLogin");
 const mensagemLogin = document.getElementById("mensagemLogin");
