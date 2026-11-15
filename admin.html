@@ -176,6 +176,15 @@ const adminAuth = adminApp.auth();
 const bancoAdmin = adminApp.database();
 
 console.log("Realtime Database administrativo inicializado.");
+
+    // MONITORAR CONEXÃO DO ADMINISTRADOR
+bancoAdmin.ref(".info/connected").on("value", (snapshot) => {
+  if (snapshot.val() === true) {
+    console.log("Conexão administrativa com Firebase: ONLINE");
+  } else {
+    console.log("Conexão administrativa com Firebase: OFFLINE");
+  }
+});
     
 // ELEMENTOS DA TELA
 const formLogin = document.getElementById("formLogin");
